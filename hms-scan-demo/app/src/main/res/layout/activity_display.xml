@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/result_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_marginTop="14dp"
+            android:id="@+id/title_result"
+            android:layout_marginLeft="64dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/title_result"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_marginTop="16dp"
+            android:id="@+id/result_back_img_in"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:src="@drawable/ic_back"
+            />
+    </RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/diplay_icon"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/text"
+        android:layout_centerHorizontal="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        ></ImageView>
+    <TextView
+        android:id="@+id/diplay_text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/diplay_icon"
+        android:text="Text"
+        android:textColor="#99000000"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <ScrollView
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:paddingBottom="150dp"
+        android:layout_below="@id/diplay_text"
+        android:background="@drawable/clors_dis"
+        android:layout_marginTop="40dp"
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:textColor="#000000"
+                android:id="@+id/barcode_type_t"
+                android:text="@string/code_format"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:textSize="20sp" />
+            <TextView
+                android:textColor="#99000000"
+                android:id="@+id/barcode_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:textColor="#000000"
+                android:id="@+id/barcode_type_mon_t"
+                android:text="@string/result_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="#99000000"
+                android:id="@+id/barcode_type_mon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp" />
+            <TextView
+                android:textColor="#000000"
+                android:layout_marginTop="18dp"
+                android:id="@+id/result_t"
+                android:text="@string/result_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="#99000000"
+                android:id="@+id/barcode_rawValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:textAllCaps="false"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="16dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/clors_btn"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button_operate"
+        android:layout_width="188dp"
+        android:layout_height="36dp"
+        android:text="Button" />
+
+</RelativeLayout>

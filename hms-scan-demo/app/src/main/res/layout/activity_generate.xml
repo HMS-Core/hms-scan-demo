@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/barcode_content" />
+
+        <EditText
+            android:id="@+id/barcode_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/barcode_width" />
+
+        <EditText
+            android:id="@+id/barcode_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/width_value"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/barcode_height" />
+
+        <EditText
+            android:id="@+id/barcode_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/height_value"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/barcode_type" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/generate_type"
+            android:entries="@array/spinnerarr_type" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/barcode_margin" />
+
+        <Spinner
+            android:id="@+id/generate_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/spinnerarr_margin" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/barcode_color" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/generate_color"
+            android:entries="@array/spinnerarr_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/barcode_backgroundcolor" />
+
+        <Spinner
+            android:id="@+id/generate_backgroundcolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/spinnerarr_backgroundcolor" />
+    </LinearLayout>
+
+
+    <Button
+        android:onClick="generateCodeBtnClick"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/clors_btn"
+        android:text="@string/generate_barcode"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <Button
+        android:onClick="saveCodeBtnClick"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/clors_btn"
+        android:text="@string/save_barcode"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/barcode_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp" />
+
+</LinearLayout>

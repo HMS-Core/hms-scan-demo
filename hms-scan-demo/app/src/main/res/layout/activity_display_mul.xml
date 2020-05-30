@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/result_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:layout_marginTop="14dp"
+            android:id="@+id/title_result"
+            android:layout_marginLeft="64dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/title_result"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_marginTop="16dp"
+            android:id="@+id/result_back_img_in"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:src="@drawable/ic_back"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="700dp">
+
+    <ScrollView
+        android:background="@drawable/clors_dis"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp">
+
+        <LinearLayout
+            android:paddingTop="20dp"
+            android:id="@+id/scroll_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.scankitdemo">
+    <!--permission for WiFI post processing,not for scankit itself-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!--camera permission-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--read permission for Bitmap Mode-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--write permission for save QRCODE Bitmap,not for scankit itself-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/scan_kit_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".CommonActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".DefinedActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".GenerateCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".DisPlayActivity" android:screenOrientation="portrait" />
+        <activity android:name=".DisPlayMulActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.huawei.hms.hmsscankit.ScanKitActivity" />
+    </application>
+
+</manifest>

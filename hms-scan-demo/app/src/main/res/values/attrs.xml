@@ -1,0 +1,84 @@
+<resources>
+    <declare-styleable name="ViewfinderView">
+        <attr name="maskColor" format="color" />
+        <attr name="frameColor" format="color" />
+        <attr name="cornerColor" format="color" />
+        <attr name="laserColor" format="color" />
+        <attr name="resultPointColor" format="color" />
+        <attr name="labelText" format="string" />
+        <attr name="labelTextColor" format="color" />
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="labelTextPadding" format="dimension" />
+        <attr name="labelTextLocation" format="enum">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+        </attr>
+        <attr name="showResultPoint" format="boolean" />
+        <attr name="frameWidth" format="dimension" />
+        <attr name="frameHeight" format="dimension" />
+        <attr name="gridColumn" format="integer" />
+        <attr name="gridHeight" format="dimension" />
+        <attr name="laserStyle" format="enum">
+            <enum name="none" value="0" />
+            <enum name="line" value="1" />
+            <enum name="grid" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <string-array name="spinnerarr_type">
+        <item>QR</item>
+        <item>Date Matrix</item>
+        <item>PDF417</item>
+        <item>Aztec</item>
+        <item>EAN-8</item>
+        <item>EAN-13</item>
+        <item>UPC-A</item>
+        <item>UPC-E</item>
+        <item>Codabar</item>
+        <item>Code 39</item>
+        <item>Code 93</item>
+        <item>Code 128</item>
+        <item>ITF</item>
+    </string-array>
+
+    <string-array name="spinnerarr_margin">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="spinnerarr_color">
+        <item>BLACK</item>
+        <item>BLUE</item>
+        <item>GRAY</item>
+        <item>GREEN</item>
+        <item>RED</item>
+        <item>YELLOW</item>
+    </string-array>
+
+    <string-array name="spinnerarr_backgroundcolor">
+        <item>WHITE</item>
+        <item>YELLOW</item>
+        <item>RED</item>
+        <item>GREEN</item>
+        <item>GRAY</item>
+        <item>BLUE</item>
+        <item>BLACK</item>
+    </string-array>
+</resources>
