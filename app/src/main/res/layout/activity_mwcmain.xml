@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/mwc_title"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/clors_dis"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="24dp"
+            android:gravity="center"
+            android:text="@string/mwc_subject"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="24dp"
+            android:text="@string/mwc_detail"
+            android:textColor="#99000000"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
+    <LinearLayout
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Button
+
+        android:id="@+id/button_scan1"
+        android:layout_width="310dp"
+        android:layout_marginTop="50dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:background="@drawable/clors_btn"
+        android:onClick="loadScanKitBtnClick"
+        android:text="@string/default_view_decoe"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <Button
+        android:onClick="newViewBtnClick"
+        android:id="@+id/button_scan3"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/clors_btn"
+        android:text="@string/customized_view_decode"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <Button
+        android:onClick="bitmapBtnClick"
+        android:id="@+id/button_scan4"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/clors_btn"
+        android:text="@string/bitmap_api_decode"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <Button
+        android:onClick="multiProcessorSynBtnClick"
+        android:id="@+id/button_scan5"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/clors_btn"
+        android:text="@string/multiProcessor_api_syn_decode"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+    <Button
+        android:onClick="multiProcessorAsynBtnClick"
+        android:id="@+id/button_scan6"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/clors_btn"
+        android:text="@string/multiProcessor_api_asyn_decode"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+    <Button
+        android:onClick="generateQRCodeBtnClick"
+        android:layout_width="310dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/clors_btn"
+        android:text="@string/generate_QR_code"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>

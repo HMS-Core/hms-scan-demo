@@ -1,0 +1,11 @@
+{
+	"client":{
+		"cp_id":"890086000102146260",
+		"product_id":"9105385871708282354",
+		"client_id":"243384382771954752",
+		"client_secret":"FE062DCFA2194579FA447A142474A7FD370D52A1A904D3D29832ED7D0C741D93",
+		"app_id":"101445057",
+		"package_name":"com.example.scankitdemo"
+	},
+	"configuration_version":"1.0"
+}
