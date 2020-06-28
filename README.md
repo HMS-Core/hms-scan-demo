@@ -1,4 +1,4 @@
-## HUAWEI Scan Kit Sample Code
+## HMS SCAN DEMO
 
 
 ## Table of Contents
@@ -14,7 +14,7 @@ The sample code shows how to use the HMS Scan Kit's code scanning capabilities t
 
 ## Supported Environments
 Compile using Android Studio and JDK1.8
-Prepared a device running EMUI 3.0 or later£¬ adapted HMS APK 4.0.0.200 or later£¬
+Prepared a device running EMUI 3.0 or later, adapted HMS APK 4.0.0.200 or later
 	
 ## Sample Code
 Scan kit demo provides four modes to adapt to the code scanning ability in different scenarios.
@@ -23,7 +23,7 @@ Scan kit demo provides four modes to adapt to the code scanning ability in diffe
 
 The app directly calls the scanning activity of HUAWEI Scan Kit, and obtains the scanning result through the asynchronous callback API. Barcodes can be scanned using the device camera, or through an imported image.
 
-Code location£ºexample/scankitdemo/MainActivity.java
+Code location:example/scankitdemo/MainActivity.java
 
 2)Customized View
 
