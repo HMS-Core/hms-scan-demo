@@ -6,12 +6,22 @@
 
  * [Introduction](#introduction)
  * [Supported Environments ](#supported-environments )
+ * [Getting Started](#getting-started)
  * [Sample Code](#sample-code)
+ * [Result](#result)
  * [License](#license)
  
  
 ## Introduction
 示例代码显示了如何使用HMS扫描套件的代码扫描功能来帮助开发人员在应用程序中快速构建代码扫描功能。
+
+## Getting Started
+1)创建app应用，并配置AppGallery Connect。
+见详情:[HUWEI Scan Development Preparation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-config-agc-0000001050043955)
+
+2)添加当前应用的AppGallery Connect配置文件
+
+3)配置HMS Core SDK的Maven仓地址
 
 ## Supported Environments
 使用Android Studio和JDK1.8进行编译
@@ -49,6 +59,9 @@
 该应用程序允许您生成条形码。
 
 代码位置:example/scankitdemo/GenerateCodeActivity.java
+
+## Result
+![image](Screenshot.jpg)
 
 ##  License
 HMS Scan Kit sample is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
