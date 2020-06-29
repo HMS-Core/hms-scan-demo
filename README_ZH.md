@@ -59,7 +59,7 @@
 代码位置:example/scankitdemo/GenerateCodeActivity.java
 
 ## Result
-[image](Screenshot.jpg)
+![image](Screenshot.jpg)
 
 ##  License
 HMS Scan Kit sample is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
