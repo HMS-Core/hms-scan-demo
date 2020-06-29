@@ -16,9 +16,11 @@ English | [中文](https://github.com/HMS-Core/hms-scan-demo/blob/master/README_
 The sample code shows how to use the HMS Scan Kit's code scanning capabilities to help developers quickly build code scanning capabilities within applications.
 
 ## Getting Started
-1)Create an app and configure the app information in AppGallery Connect
+1)Create an app and configure the app information in AppGallery Connect.
 See details:[HUWEI Scan Development Preparation](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050043955)
+
 2)Adding the AppGallery Connect Configuration File of Your App
+
 3)Configuring the Maven Repository Address for the HMS Core SDK
 
 ## Supported Environments

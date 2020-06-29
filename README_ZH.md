@@ -16,9 +16,11 @@
 示例代码显示了如何使用HMS扫描套件的代码扫描功能来帮助开发人员在应用程序中快速构建代码扫描功能。
 
 ## Getting Started
-1)创建app应用，并配置AppGallery Connect
+1)创建app应用，并配置AppGallery Connect。
 见详情:[HUWEI Scan Development Preparation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-config-agc-0000001050043955)
+
 2)添加当前应用的AppGallery Connect配置文件
+
 3)配置HMS Core SDK的Maven仓地址
 
 ## Supported Environments
