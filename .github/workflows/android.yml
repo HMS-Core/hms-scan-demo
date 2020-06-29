@@ -18,4 +18,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: chmod 777 ./gradlew build
+      run: chmod +x gradlew ./gradlew build
