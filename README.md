@@ -1,4 +1,4 @@
-## HMS SCAN DEMO
+# HMS Scan Demo
 
 English | [中文](https://github.com/HMS-Core/hms-scan-demo/blob/master/README_ZH.md)
 
