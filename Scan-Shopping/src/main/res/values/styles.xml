@@ -12,11 +12,11 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
-        <!-- 是否启用标题栏 -->
+        <!-- Whether to enable the title bar.  -->
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
-        <!-- 是否使用背景半透明 -->
+        <!-- Whether to use the background translucency. -->
     </style>
 
 </resources>
