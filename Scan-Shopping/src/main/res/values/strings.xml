@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Scan Shopping</string>
+    <string name="title">Scan Shopping</string>
+    <string name="subject">Scan to shop</string>
+    <string name="detail">Scan product\'s barcode to add product to lib or query product from lib</string>
+    <string name="add_product">Add Product</string>
+    <string name="scan_barcode">Scan Barcode</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="save">Save</string>
+    <string name="query_product">Query Product</string>
+    <string name="please_take_picture">please take picture</string>
+    <string name="please_scan_barcode">please scan barcode</string>
+</resources>
