@@ -1,4 +1,4 @@
-# HMS Scan Demo
+# HMS Scankit Demo
 
 English | [中文](https://github.com/HMS-Core/hms-scan-demo/blob/master/README_ZH.md)
 
@@ -61,8 +61,7 @@ The app allow you to generate barcode.
 Code location:example/scankitdemo/GenerateCodeActivity.java
 
 ## Result
-![image](Screenshot.jpg)
+<img src="Screenshot.jpg" width=250 title="ID Photo DIY" div align=center border=5>
 
 ##  License
 HMS Scan Kit sample is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
-
