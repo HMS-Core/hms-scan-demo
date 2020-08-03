@@ -17,7 +17,7 @@ The sample code shows how to use the HMS Scan Kit's code scanning capabilities t
 
 ## Getting Started
 1)Create an app and configure the app information in AppGallery Connect.
-See details:[HUWEI Scan Development Preparation](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050043955)
+See details:[HUAWEI Scan Development Preparation](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050043955)
 
 2)Adding the AppGallery Connect Configuration File of Your App
 
