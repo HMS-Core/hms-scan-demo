@@ -34,6 +34,15 @@
             </intent-filter>
         </activity>
         <activity android:name="com.huawei.hms.hmsscankit.ScanKitActivity" />
+
+        <activity android:name="com.example.scankitdemokotlin.CommonActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.example.scankitdemokotlin.DefinedActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.example.scankitdemokotlin.GenerateCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.example.scankitdemokotlin.DisPlayActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.example.scankitdemokotlin.DisPlayMulActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.example.scankitdemokotlin.MainActivity" android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>
