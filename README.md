@@ -13,6 +13,7 @@ English | [中文](https://github.com/HMS-Core/hms-scan-demo/blob/master/README_
  
 ## Introduction
 The sample code shows how to use the HMS Scan Kit's code scanning capabilities to help developers quickly build code scanning capabilities within applications.
+
 You also can use HMS Toolkit to quickly integrate the kit and run the demo project, as well as debug the app using a remote device for free. For details, please visit https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/getting-started-0000001077381096.
 
 ## Getting Started
