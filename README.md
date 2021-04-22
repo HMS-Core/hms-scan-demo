@@ -74,3 +74,5 @@ If you run into a bug in our samples, please submit an [issue](https://github.co
 
 ##  License
 HMS Scan Kit sample is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+You also can use HMS Toolkit to quickly integrate the kit and run the demo project, as well as debug the app using a remote device for free. For details, please visit https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/getting-started-0000001077381096..
