@@ -1,4 +1,4 @@
-## HMS SCAN DEMO
+# 华为统一扫码服务Android示例代码
 
 [English](https://github.com/HMS-Core/hms-scan-demo/blob/master/README.md) | 中文
 
@@ -75,4 +75,4 @@
 如果您在尝试示例代码中遇到问题，请向仓库提交[issue](https://github.com/HMS-Core/hms-scan-demo/issues)，也欢迎您提交[Pull Request](https://github.com/HMS-Core/hms-scan-demo/pulls)。
 
 ##  授权许可
-华为扫码服务示例代码经过[Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0)授权许可.
+华为统一扫码服务示例代码经过[Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0)授权许可.
