@@ -1,3 +1,2 @@
 include ':app'
-include ':Scan-Shopping'
 rootProject.name='ScanKitDemo'
