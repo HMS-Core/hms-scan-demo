@@ -1,78 +1,78 @@
-# HMS Scankit Demo
+﻿# HMS Core Scan Kit Sample Code (Android)
 
-English | [中文](https://github.com/HMS-Core/hms-scan-demo/blob/master/README_ZH.md)
+English | [中文](README_ZH.md)
+## Contents
 
-## Table of Contents
+ * [Introduction](#Introduction)
+ * [Preparations](#Preparations)
+ * [Environment Requirements](#Environment-Requirements)
+ * [Sample Code](#Sample-Code)
+ * [Result](#Result)
+ * [License](#License)
 
- * [Introduction](#introduction)
- * [Supported Environments ](#supported-environments )
- * [Getting Started](#getting-started)
- * [Sample Code](#sample-code)
- * [Result](#result)
- * [License](#license)
- 
+
 ## Introduction
-The sample code shows how to use the HMS Scan Kit's code scanning capabilities to help developers quickly build code scanning capabilities within applications.
+The sample code shows how to quickly build barcode scanning functions into an app using the capabilities in HMS Core Scan Kit.
 
-You also can use HMS Toolkit to quickly integrate the kit and run the demo project, as well as debug the app using a remote device for free. For details, please visit https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/getting-started-0000001077381096.
+You can use HMS Toolkit to quickly run the sample code. HMS Toolkit supports one-stop kit integration, and provides functions such as free app debugging on remote real devices. To learn more about HMS Toolkit, please refer to the [HMS Toolkit documentation](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/getting-started-0000001077381096?ha_source=hms1).
 
-## Getting Started
-1. Create an app and configure the app information in AppGallery Connect.
-See details:[HUAWEI Scan Development Preparation](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050043955)
+## Preparations
+1. Create an app and configure its information in AppGallery Connect.
+For details, please refer to [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050043955?ha_source=hms1).
 
-2. Adding the AppGallery Connect Configuration File of Your App
+2. Add the AppGallery Connect configuration file of your app.
 
-3. Configuring the Maven Repository Address for the HMS Core SDK
+3. Configure the Maven repository address for the HMS Core SDK.
 
-## Supported Environments
-Compile using Android Studio and JDK1.8
-Prepared a device running EMUI 3.0 or later, adapted HMS APK 4.0.0.200 or later
+## Environment Requirements
+Android Studio 3.0 or later and JDK 1.8.211 or later
+A device that runs EMUI 3.0 or later and is compatible with HMS Core (APK) 4.0.0.200 or later
 	
 ## Sample Code
-Scan kit demo provides four modes to adapt to the code scanning ability in different scenarios.
+The demo shows the following modes for barcode scanning in different scenarios:
 
-* Default View
+1. Default View
 
-The app directly calls the scanning activity of HUAWEI Scan Kit, and obtains the scanning result through the asynchronous callback API. Barcodes can be scanned using the device camera, or through an imported image.
+In this mode, your app will call activities provided by this kit and obtain the scanning result through an asynchronous callback API. Users will be able to scan barcodes directly with the camera or from local images imported to the app.
 
-Code location:[example/scankitdemo/MainActivity.java](https://github.com/HMS-Core/hms-scan-demo/blob/master/app/src/main/java/com/example/scankitdemo/MainActivity.java)
+Find the sample code for this mode in **example/scankitdemo/MainActivity.java**.
 
-* Customized View
+2. Customized View
 
-The app directly creates a RemoteView, and obtains the scanning result through the asynchronous callback API. Barcodes can be scanned using the device camera, or through an imported image.
+In this mode, your app will create a **RemoteView** object and obtain the scanning result through an asynchronous callback API. Users will be able to scan barcodes directly with the camera or from local images imported to the app.
 
-Code location:[example/scankitdemo/DefinedActivity.java](https://github.com/HMS-Core/hms-scan-demo/blob/master/app/src/main/java/com/example/scankitdemo/DefinedActivity.java)
+Find the sample code for this mode in **example/scankitdemo/DefinedActivity.java**.
 
-* Bitmap API
+3. Bitmap
 
-The app directly passes a bitmap through the bitmap API, and obtains the scanning result through the API. In your app, you can call the camera API or import a local image to obtain the bitmap, and then call the bitmap API of HUAWEI Scan Kit to decode the bitmap.
+In this mode, your app will implement bitmap-based barcode scanning and obtain the scanning result through related APIs. Your app will be able to obtain bitmaps by starting the camera or importing local images, and decode the bitmaps by calling **decodeWithBitmap**.
 
-Code location:[example/scankitdemo/CommonActivity.java example/scankitdemo/CommonHandler.java](https://github.com/HMS-Core/hms-scan-demo/blob/master/app/src/main/java/com/example/scankitdemo/CommonHandler.java)
+Find the sample code for this mode in **example/scankitdemo/CommonActivity.java** and **example/scankitdemo/CommonHandler.java**.
 
-* MultiProcessor API
+4. MultiProcessor
 
-The app passes frame data through the MultiProcessor API for decoding, and detects barcodes along with multiple objects such as faces, using the same technology as HUAWEI ML Kit.
+When working together with ML Kit, Scan Kit provides the capability of detecting both barcodes and human faces. Frame data is transmitted and decoded through MultiProcessor APIs.
 
-Code location:[example/scankitdemo/CommonActivity.java example/scankitdemo/CommonHandler.java](https://github.com/HMS-Core/hms-scan-demo/blob/master/app/src/main/java/com/example/scankitdemo/CommonHandler.java)
+Find the sample code for this mode in **example/scankitdemo/CommonActivity.java** and **example/scankitdemo/CommonHandler.java**.
 	
-5)Generate Code API
+5. Generating barcodes
 
-The app allow you to generate barcode.
+Call the **buildBitmap** API to generate barcodes.
 
-Code location:[example/scankitdemo/GenerateCodeActivity.java](https://github.com/HMS-Core/hms-scan-demo/blob/master/app/src/main/java/com/example/scankitdemo/GenerateCodeActivity.java)
+Find the sample code for barcode generation in **example/scankitdemo/GenerateCodeActivity.java**.
 
 ## Result
 <img src="Screenshot.jpg" width=250 title="ID Photo DIY" div align=center border=5>
 
-## Question or issues
-If you want to evaluate more about HMS Core, [r/HMSCore on Reddit](https://www.reddit.com/r/HuaweiDevelopers/) is for you to keep up with latest news about HMS Core, and to exchange insights with other developers.
+## Technical Support
+You can visit the [Reddit community](https://www.reddit.com/r/HuaweiDevelopers/) to obtain the latest information about HMS Core and communicate with other developers.
 
-If you have questions about how to use HMS samples, try the following options:
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services) is the best place for any programming questions. Be sure to tag your question with 
-`huawei-mobile-services`.
-- [Huawei Developer Forum](https://forums.developer.huawei.com/forumPortal/en/home?fid=0101187876626530001) HMS Core Module is great for general questions, or seeking recommendations and opinions.
+If you have any questions about the sample code, try the following:
+- Visit [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services?tab=Votes), submit your questions, and tag them with `huawei-mobile-services`. Huawei experts will answer your questions.
+- Visit the HMS Core section in the [HUAWEI Developer Forum](https://forums.developer.huawei.com/forumPortal/en/home?fid=0101187876626530001?ha_source=hms1) and communicate with other developers.
 
-If you run into a bug in our samples, please submit an [issue](https://github.com/HMS-Core/hms-scan-demo/issues) to the Repository. Even better you can submit a [Pull Request](https://github.com/HMS-Core/hms-scan-demo/pulls) with a fix.
+If you encounter any issues when using the sample code, submit your [issues](https://github.com/HMS-Core/hms-scan-demo/issues) or submit a [pull request](https://github.com/HMS-Core/hms-scan-demo/pulls).
 
 ##  License
-HMS Scan Kit sample is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+The sample code is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
