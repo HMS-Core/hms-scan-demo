@@ -4,7 +4,6 @@ English | [中文](README_ZH.md)
 ## Contents
 
  * [Introduction](#Introduction)
- * [Preparations](#Preparations)
  * [Environment Requirements](#Environment-Requirements)
  * [Sample Code](#Sample-Code)
  * [Result](#Result)
@@ -16,13 +15,7 @@ The sample code shows how to quickly build barcode scanning functions into an ap
 
 You can use HMS Toolkit to quickly run the sample code. HMS Toolkit supports one-stop kit integration, and provides functions such as free app debugging on remote real devices. To learn more about HMS Toolkit, please refer to the [HMS Toolkit documentation](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/getting-started-0000001077381096?ha_source=hms1).
 
-## Preparations
-1. Create an app and configure its information in AppGallery Connect.
-For details, please refer to [Configuring App Information in AppGallery Connect](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-config-agc-0000001050043955?ha_source=hms1).
 
-2. Add the AppGallery Connect configuration file of your app.
-
-3. Configure the Maven repository address for the HMS Core SDK.
 
 ## Environment Requirements
 Android Studio 3.0 or later and JDK 1.8.211 or later
