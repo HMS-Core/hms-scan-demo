@@ -28,20 +28,20 @@ class CommonHandler(val activity: Activity, val cameraOperation: CameraOperation
     private var decodeHandle: Handler? = null
 
     companion object {
-        const val TAG = "MainHandler"
-        const val DEFAULT_ZOOM:Double = 1.00
+        private const val TAG = "MainHandler"
+        private const val DEFAULT_ZOOM:Double = 1.00
     }
 
     init {
         decodeThread = HandlerThread("DecodeThread")
         decodeThread?.start()
-        decodeHandle = object : Handler(decodeThread?.getLooper()) {
+        decodeHandle = object : Handler(decodeThread?.looper) {
             override fun handleMessage(msg: Message) {
                 if (msg == null) {
                     return
                 }
                 if (mode == BITMAP_CODE || mode == MULTIPROCESSOR_SYN_CODE) {
-                    var result: Array<HmsScan?>? = decodeSyn(msg.arg1, msg.arg2, msg.obj as ByteArray, activity, HmsScan.ALL_SCAN_TYPE, mode)
+                    val result: Array<HmsScan?>? = decodeSyn(msg.arg1, msg.arg2, msg.obj as ByteArray, activity, HmsScan.ALL_SCAN_TYPE, mode)
                     if (result == null || result.size == 0) {
                         restart(DEFAULT_ZOOM)
                     } else if (TextUtils.isEmpty(result[0]!!.getOriginalValue()) && result[0]!!.getZoomValue() != 1.0) {
@@ -103,7 +103,7 @@ class CommonHandler(val activity: Activity, val cameraOperation: CameraOperation
      * Call the MultiProcessor API in asynchronous mode.
      */
     private fun decodeAsyn(width: Int, height: Int, data: ByteArray, activity: Activity, type: Int) {
-        var bitmap = convertToBitmap(width, height, data)
+        val bitmap = convertToBitmap(width, height, data)
         val image = MLFrame.fromBitmap(bitmap)
         val options = HmsScanAnalyzerOptions.Creator().setHmsScanTypes(type).create()
         val analyzer = HmsScanAnalyzer(options)
@@ -142,16 +142,22 @@ class CommonHandler(val activity: Activity, val cameraOperation: CameraOperation
                 val arr = message.obj as Array<HmsScan>
                 if (arr!=null&&arr.size>=0) {
                     for (i in arr.indices) {
-                        if (i == 0) {
-                            commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.YELLOW))
-                        } else if (i == 1) {
-                            commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.BLUE))
-                        } else if (i == 2) {
-                            commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.RED))
-                        } else if (i == 3) {
-                            commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.GREEN))
-                        } else {
-                            commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i]))
+                        when (i) {
+                          0 -> {
+                              commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.YELLOW))
+                          }
+                          1 -> {
+                              commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.BLUE))
+                          }
+                          2 -> {
+                              commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.RED))
+                          }
+                          3 -> {
+                              commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i], Color.GREEN))
+                          }
+                          else -> {
+                              commonActivity.scanResultView?.add(HmsScanGraphic(commonActivity.scanResultView!!, arr[i]))
+                          }
                         }
                     }
                 }

@@ -21,6 +21,8 @@ import com.huawei.hms.ml.scan.HmsScanAnalyzerOptions
 import java.io.IOException
 
 class DefinedActivity:Activity() {
+    private val img = intArrayOf(R.drawable.flashlight_on, R.drawable.flashlight_off)
+
     var frameLayout:FrameLayout? = null
     var remoteView:RemoteView? = null
     var backBtn:ImageView? = null
@@ -30,10 +32,8 @@ class DefinedActivity:Activity() {
     var mScreenWidth = 0
     var mScreenHeight = 0
 
-    val SCAN_FRAME_SIZE = 240
-    val img = intArrayOf(R.drawable.flashlight_on, R.drawable.flashlight_off)
-
     companion object{
+        private const val SCAN_FRAME_SIZE = 240
         const val SCAN_RESULT = "scanResult"
         const val REQUEST_CODE_PHOTO = 0X1113
     }
@@ -71,25 +71,29 @@ class DefinedActivity:Activity() {
 
 
         //Initialize the RemoteView instance, and set callback for the scanning result.
-        remoteView = RemoteView.Builder().setContext(this).setBoundingBox(rect).setFormat(HmsScan.ALL_SCAN_TYPE).build()
+        remoteView = RemoteView.Builder()
+            .setContext(this)
+            .setBoundingBox(rect)
+            .setFormat(HmsScan.ALL_SCAN_TYPE)
+            .build()
         // When the light is dim, this API is called back to display the flashlight switch.
         // When the light is dim, this API is called back to display the flashlight switch.
         flushBtn = findViewById(R.id.flush_btn)
-        remoteView?.setOnLightVisibleCallback(OnLightVisibleCallBack { visible ->
+        remoteView?.setOnLightVisibleCallback { visible ->
             if (visible) {
-                flushBtn?.setVisibility(View.VISIBLE)
+                flushBtn?.visibility = View.VISIBLE
             }
-        })
+        }
         // Subscribe to the scanning result callback event.
         // Subscribe to the scanning result callback event.
-        remoteView?.setOnResultCallback(OnResultCallback { result -> //Check the result.
-            if (result != null && result.size > 0 && result[0] != null && !TextUtils.isEmpty(result[0].getOriginalValue())) {
+        remoteView?.setOnResultCallback { result -> //Check the result.
+            if (result != null && result.isNotEmpty() && result[0] != null && !TextUtils.isEmpty(result[0].getOriginalValue())) {
                 val intent = Intent()
                 intent.putExtra(SCAN_RESULT, result[0])
                 setResult(RESULT_OK, intent)
                 finish()
             }
-        })
+        }
 
         // Load the customized view to the activity.
         // Load the customized view to the activity.
@@ -105,29 +109,28 @@ class DefinedActivity:Activity() {
 
     private fun setPictureScanOperation() {
         imgBtn = findViewById(R.id.img_btn)
-        imgBtn?.setOnClickListener(View.OnClickListener {
-            val pickIntent = Intent(Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        imgBtn?.setOnClickListener {
+            val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
             this@DefinedActivity.startActivityForResult(pickIntent, REQUEST_CODE_PHOTO)
-        })
+        }
     }
 
     private fun setFlashOperation() {
         flushBtn?.setOnClickListener {
-            if (remoteView?.lightStatus ?:false) {
+            if (remoteView?.lightStatus == true) {
                 remoteView?.switchLight()
-                flushBtn?.setImageResource(img[1])
+                flushBtn?.setImageResource(img.last())
             } else {
                 remoteView?.switchLight()
-                flushBtn?.setImageResource(img[0])
+                flushBtn?.setImageResource(img.first())
             }
         }
     }
 
     private fun setBackOperation() {
         backBtn = findViewById(R.id.back_img)
-        backBtn?.setOnClickListener(View.OnClickListener { finish() })
+        backBtn?.setOnClickListener { finish() }
     }
 
     override fun onStart() {
@@ -161,7 +164,7 @@ class DefinedActivity:Activity() {
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, data.data)
                 val hmsScans = ScanUtil.decodeWithBitmap(this@DefinedActivity, bitmap, HmsScanAnalyzerOptions.Creator().setPhotoMode(true).create())
-                if (hmsScans != null && hmsScans.size > 0 && hmsScans[0] != null && !TextUtils.isEmpty(hmsScans[0]!!.getOriginalValue())) {
+                if (hmsScans != null && hmsScans.isNotEmpty() && hmsScans[0] != null && !TextUtils.isEmpty(hmsScans[0]!!.getOriginalValue())) {
                     val intent = Intent()
                     intent.putExtra(SCAN_RESULT, hmsScans[0])
                     setResult(RESULT_OK, intent)

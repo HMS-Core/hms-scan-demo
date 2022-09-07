@@ -31,13 +31,13 @@ class DisPlayMulActivity:Activity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_display_mul)
         backBtn = findViewById(R.id.result_back_img_in)
-        backBtn?.setOnClickListener(View.OnClickListener { finish() })
+        backBtn?.setOnClickListener { finish() }
         scrollView = findViewById(R.id.scroll_item)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val window = window
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             window?.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-            val relativeLayout = findViewById<RelativeLayout>(R.id.result_title)
+            val relativeLayout: RelativeLayout = findViewById(R.id.result_title)
             if (relativeLayout != null) {
                 val lp = RelativeLayout.LayoutParams(relativeLayout.layoutParams.width, relativeLayout.layoutParams.height)
                 lp.setMargins(0, getStatusBarHeight(), 0, 0)
@@ -70,72 +70,72 @@ class DisPlayMulActivity:Activity() {
         rawResult = view?.findViewById(R.id.barcode_rawValue)
         rawResult?.setText(hmsScan.getOriginalValue())
         if (hmsScan.getScanType() == HmsScan.QRCODE_SCAN_TYPE) {
-            codeFormat?.setText("QR code")
+            codeFormat?.text = "QR code"
         } else if (hmsScan.getScanType() == HmsScan.AZTEC_SCAN_TYPE) {
-            codeFormat?.setText("AZTEC code")
+            codeFormat?.text = "AZTEC code"
         } else if (hmsScan.getScanType() == HmsScan.DATAMATRIX_SCAN_TYPE) {
-            codeFormat?.setText("DATAMATRIX code")
+            codeFormat?.text = "DATAMATRIX code"
         } else if (hmsScan.getScanType() == HmsScan.PDF417_SCAN_TYPE) {
-            codeFormat?.setText("PDF417 code")
+            codeFormat?.text = "PDF417 code"
         } else if (hmsScan.getScanType() == HmsScan.CODE93_SCAN_TYPE) {
-            codeFormat?.setText("CODE93")
+            codeFormat?.text = "CODE93"
         } else if (hmsScan.getScanType() == HmsScan.CODE39_SCAN_TYPE) {
-            codeFormat?.setText("CODE39")
+            codeFormat?.text = "CODE39"
         } else if (hmsScan.getScanType() == HmsScan.CODE128_SCAN_TYPE) {
-            codeFormat?.setText("CODE128")
+            codeFormat?.text = "CODE128"
         } else if (hmsScan.getScanType() == HmsScan.EAN13_SCAN_TYPE) {
-            codeFormat?.setText("EAN13 code")
+            codeFormat?.text = "EAN13 code"
         } else if (hmsScan.getScanType() == HmsScan.EAN8_SCAN_TYPE) {
-            codeFormat?.setText("EAN8 code")
+            codeFormat?.text = "EAN8 code"
         } else if (hmsScan.getScanType() == HmsScan.ITF14_SCAN_TYPE) {
-            codeFormat?.setText("ITF14 code")
+            codeFormat?.text = "ITF14 code"
         } else if (hmsScan.getScanType() == HmsScan.UPCCODE_A_SCAN_TYPE) {
-            codeFormat?.setText("UPCCODE_A")
+            codeFormat?.text = "UPCCODE_A"
         } else if (hmsScan.getScanType() == HmsScan.UPCCODE_E_SCAN_TYPE) {
-            codeFormat?.setText("UPCCODE_E")
+            codeFormat?.text = "UPCCODE_E"
         } else if (hmsScan.getScanType() == HmsScan.CODABAR_SCAN_TYPE) {
-            codeFormat?.setText("CODABAR")
+            codeFormat?.text = "CODABAR"
         }
         if (hmsScan.getScanType() == HmsScan.QRCODE_SCAN_TYPE) {
             if (hmsScan.getScanTypeForm() == HmsScan.PURE_TEXT_FORM) {
-                resultType?.setText("Text")
+                resultType?.text = "Text"
             } else if (hmsScan.getScanTypeForm() == HmsScan.EVENT_INFO_FORM) {
-                resultType?.setText("Event")
+                resultType?.text = "Event"
             } else if (hmsScan.getScanTypeForm() == HmsScan.CONTACT_DETAIL_FORM) {
-                resultType?.setText("Contact")
+                resultType?.text = "Contact"
             } else if (hmsScan.getScanTypeForm() == HmsScan.DRIVER_INFO_FORM) {
-                resultType?.setText("License")
+                resultType?.text = "License"
             } else if (hmsScan.getScanTypeForm() == HmsScan.EMAIL_CONTENT_FORM) {
-                resultType?.setText("Email")
+                resultType?.text = "Email"
             } else if (hmsScan.getScanTypeForm() == HmsScan.TEL_PHONE_NUMBER_FORM) {
-                resultType?.setText("Tel")
+                resultType?.text = "Tel"
             } else if (hmsScan.getScanTypeForm() == HmsScan.SMS_FORM) {
-                resultType?.setText("SMS")
+                resultType?.text = "SMS"
             } else if (hmsScan.getScanTypeForm() == HmsScan.WIFI_CONNECT_INFO_FORM) {
-                resultType?.setText("Wi-Fi")
+                resultType?.text = "Wi-Fi"
             } else if (hmsScan.getScanTypeForm() == HmsScan.URL_FORM) {
-                resultType?.setText("WebSite")
+                resultType?.text = "WebSite"
             } else if (hmsScan.getScanTypeForm() == HmsScan.ARTICLE_NUMBER_FORM) {
-                resultType?.setText("Product")
+                resultType?.text = "Product"
             } else {
-                resultType?.setText("Text")
+                resultType?.text = "Text"
             }
         } else if (hmsScan.getScanType() == HmsScan.EAN13_SCAN_TYPE) {
             if (hmsScan.getScanTypeForm() == HmsScan.ISBN_NUMBER_FORM) {
-                resultType?.setText("ISBN")
+                resultType?.text = "ISBN"
             } else if (hmsScan.getScanTypeForm() == HmsScan.ARTICLE_NUMBER_FORM) {
-                resultType?.setText("Product")
+                resultType?.text = "Product"
             } else {
-                resultType?.setText("Text")
+                resultType?.text = "Text"
             }
         } else if (hmsScan.getScanType() == HmsScan.EAN8_SCAN_TYPE || hmsScan.getScanType() == HmsScan.UPCCODE_A_SCAN_TYPE || hmsScan.getScanType() == HmsScan.UPCCODE_E_SCAN_TYPE) {
             if (hmsScan.getScanTypeForm() == HmsScan.ARTICLE_NUMBER_FORM) {
-                resultType?.setText("Product")
+                resultType?.text = "Product"
             } else {
-                resultType?.setText("Text")
+                resultType?.text = "Text"
             }
         } else {
-            resultType?.setText("Text")
+            resultType?.text = "Text"
         }
     }
 

@@ -41,7 +41,7 @@ class DisPlayActivity :Activity(){
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_display)
         backBtn = findViewById(R.id.result_back_img_in)
-        backBtn?.setOnClickListener(View.OnClickListener { finish() })
+        backBtn?.setOnClickListener { finish() }
         codeFormat = findViewById(R.id.barcode_type)
         icon = findViewById(R.id.diplay_icon)
         iconText = findViewById(R.id.diplay_text)
@@ -53,7 +53,7 @@ class DisPlayActivity :Activity(){
             val window = window
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             window?.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-            val relativeLayout = findViewById<RelativeLayout>(R.id.result_title)
+            val relativeLayout: RelativeLayout = findViewById(R.id.result_title)
             if (relativeLayout != null) {
                 val lp = RelativeLayout.LayoutParams(relativeLayout.layoutParams.width, relativeLayout.layoutParams.height)
                 lp.setMargins(0, getStatusBarHeight(), 0, 0)
@@ -312,7 +312,7 @@ class DisPlayActivity :Activity(){
         }
     }
 
-    val CalendarEvent = 0x3300
+    private val CalendarEvent = 0x3300
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
         when (requestCode) {
@@ -330,9 +330,6 @@ class DisPlayActivity :Activity(){
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
-    override fun onStop() {
-        super.onStop()
-    }
 
     protected fun getStatusBarHeight(): Int {
         var result = 0

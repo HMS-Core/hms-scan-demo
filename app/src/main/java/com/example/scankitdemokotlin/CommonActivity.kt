@@ -16,11 +16,11 @@ import android.view.animation.Animation.AnimationListener
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.util.isNotEmpty
 import com.example.scankitdemo.CameraOperation
 import com.example.scankitdemo.R
 import com.example.scankitdemo.draw.ScanResultView
 import com.example.scankitdemokotlin.DefinedActivity.Companion.REQUEST_CODE_PHOTO
-import com.example.scankitdemokotlin.DefinedActivity.Companion.SCAN_RESULT
 import com.example.scankitdemokotlin.MainActivity.Companion.BITMAP_CODE
 import com.example.scankitdemokotlin.MainActivity.Companion.DECODE_MODE
 import com.example.scankitdemokotlin.MainActivity.Companion.MULTIPROCESSOR_ASYN_CODE
@@ -35,6 +35,7 @@ import java.util.*
 
 
 class CommonActivity :Activity(){
+    private val defaultValue = -1
     private var backBtn: ImageView? = null
     private var imgBtn: ImageView? = null
     private var mscanArs: ImageView? = null
@@ -43,14 +44,14 @@ class CommonActivity :Activity(){
     private var cameraOperation: CameraOperation? = null
     private var surfaceCallBack: SurfaceCallBack? = null
     private var handler: CommonHandler? = null
-    val defaultValue = -1
+
     var mode = defaultValue
 
     var isShow = false
     var scanResultView: ScanResultView? = null
 
     companion object{
-        const val TAG = "commonActivity"
+        private const val TAG = "commonActivity"
         const val SCAN_RESULT = "scanResult"
     }
 
@@ -65,14 +66,14 @@ class CommonActivity :Activity(){
         mscanArs = findViewById(R.id.scan_ars)
         mscanTips = findViewById(R.id.scan_tip)
         if (mode == MULTIPROCESSOR_ASYN_CODE || mode == MULTIPROCESSOR_SYN_CODE) {
-            mscanArs?.setVisibility(View.INVISIBLE)
+            mscanArs?.visibility = View.INVISIBLE
             mscanTips?.setText(R.string.scan_showresult)
             val disappearAnimation = AlphaAnimation(1f, 0f)
             disappearAnimation.setAnimationListener(object : AnimationListener {
                 override fun onAnimationStart(animation: Animation) {}
                 override fun onAnimationEnd(animation: Animation) {
                     if (mscanTips != null) {
-                        mscanTips?.setVisibility(View.GONE)
+                        mscanTips?.visibility = View.GONE
                     }
                 }
 
@@ -83,7 +84,7 @@ class CommonActivity :Activity(){
         }
         cameraOperation = CameraOperation()
         surfaceCallBack = SurfaceCallBack()
-        val cameraPreview = findViewById<SurfaceView>(R.id.surfaceView)
+        val cameraPreview: SurfaceView = findViewById(R.id.surfaceView)
         adjustSurface(cameraPreview)
         surfaceHolder = cameraPreview.holder
         isShow = false
@@ -101,24 +102,24 @@ class CommonActivity :Activity(){
             val defaultDisplay = windowManager.defaultDisplay
             val outPoint = Point()
             defaultDisplay.getRealSize(outPoint)
-            val sceenWidth = outPoint.x.toFloat()
-            val sceenHeight = outPoint.y.toFloat()
+            val screenWidth = outPoint.x.toFloat()
+            val screenHeight = outPoint.y.toFloat()
             val rate: Float
-            if (sceenWidth / 1080.toFloat() > sceenHeight / 1920.toFloat()) {
-                rate = sceenWidth / 1080.toFloat()
+            if (screenWidth / 1080.toFloat() > screenHeight / 1920.toFloat()) {
+                rate = screenWidth / 1080.toFloat()
                 val targetHeight = (1920 * rate).toInt()
                 paramSurface.width = FrameLayout.LayoutParams.MATCH_PARENT
                 paramSurface.height = targetHeight
-                val topMargin = (-(targetHeight - sceenHeight) / 2).toInt()
+                val topMargin = (-(targetHeight - screenHeight) / 2).toInt()
                 if (topMargin < 0) {
                     paramSurface.topMargin = topMargin
                 }
             } else {
-                rate = sceenHeight / 1920.toFloat()
+                rate = screenHeight / 1920.toFloat()
                 val targetWidth = (1080 * rate).toInt()
                 paramSurface.width = targetWidth
                 paramSurface.height = FrameLayout.LayoutParams.MATCH_PARENT
-                val leftMargin = (-(targetWidth - sceenWidth) / 2).toInt()
+                val leftMargin = (-(targetWidth - screenWidth) / 2).toInt()
                 if (leftMargin < 0) {
                     paramSurface.leftMargin = leftMargin
                 }
@@ -128,12 +129,12 @@ class CommonActivity :Activity(){
 
     private fun setBackOperation() {
         backBtn = findViewById(R.id.back_img)
-        backBtn?.setOnClickListener(View.OnClickListener {
-            if (mode == MULTIPROCESSOR_ASYN_CODE || mode ==MULTIPROCESSOR_SYN_CODE) {
+        backBtn?.setOnClickListener {
+            if (mode == MULTIPROCESSOR_ASYN_CODE || mode == MULTIPROCESSOR_SYN_CODE) {
                 setResult(RESULT_CANCELED)
             }
             finish()
-        })
+        }
     }
 
     override fun onBackPressed() {
@@ -145,12 +146,11 @@ class CommonActivity :Activity(){
 
     private fun setPictureScanOperation() {
         imgBtn = findViewById(R.id.img_btn)
-        imgBtn?.setOnClickListener(View.OnClickListener {
-            val pickIntent = Intent(Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        imgBtn?.setOnClickListener {
+            val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
             this@CommonActivity.startActivityForResult(pickIntent, REQUEST_CODE_PHOTO)
-        })
+        }
     }
 
     override fun onResume() {
@@ -174,9 +174,6 @@ class CommonActivity :Activity(){
         super.onPause()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 
     private fun initCamera() {
         try {
@@ -196,12 +193,16 @@ class CommonActivity :Activity(){
         }
         try {
             // Image-based scanning mode
-            if (mode == BITMAP_CODE) {
-                decodeBitmap(MediaStore.Images.Media.getBitmap(this.contentResolver, data.data), HmsScan.ALL_SCAN_TYPE)
-            } else if (mode == MULTIPROCESSOR_SYN_CODE) {
-                decodeMultiSyn(MediaStore.Images.Media.getBitmap(this.contentResolver, data.data))
-            } else if (mode == MULTIPROCESSOR_ASYN_CODE) {
-                decodeMultiAsyn(MediaStore.Images.Media.getBitmap(this.contentResolver, data.data))
+            when (mode) {
+              BITMAP_CODE -> {
+                  decodeBitmap(MediaStore.Images.Media.getBitmap(this.contentResolver, data.data), HmsScan.ALL_SCAN_TYPE)
+              }
+              MULTIPROCESSOR_SYN_CODE -> {
+                  decodeMultiSyn(MediaStore.Images.Media.getBitmap(this.contentResolver, data.data))
+              }
+              MULTIPROCESSOR_ASYN_CODE -> {
+                  decodeMultiAsyn(MediaStore.Images.Media.getBitmap(this.contentResolver, data.data))
+              }
             }
         } catch (e: Exception) {
             Log.e(TAG, Objects.requireNonNull<String>(e.message))
@@ -210,7 +211,7 @@ class CommonActivity :Activity(){
 
     private fun decodeBitmap(bitmap: Bitmap, scanType: Int) {
         val hmsScans = ScanUtil.decodeWithBitmap(this@CommonActivity, bitmap, HmsScanAnalyzerOptions.Creator().setHmsScanTypes(scanType).setPhotoMode(true).create())
-        if (hmsScans != null && hmsScans.size > 0 && hmsScans[0] != null && !TextUtils.isEmpty(hmsScans[0]!!.getOriginalValue())) {
+        if (hmsScans != null && hmsScans.isNotEmpty() && hmsScans[0] != null && !TextUtils.isEmpty(hmsScans[0]!!.getOriginalValue())) {
             val intent = Intent()
             intent.putExtra(SCAN_RESULT, hmsScans)
             setResult(RESULT_OK, intent)
@@ -222,7 +223,7 @@ class CommonActivity :Activity(){
         val image = MLFrame.fromBitmap(bitmap)
         val analyzer = HmsScanAnalyzer.Creator(this).setHmsScanTypes(HmsScan.ALL_SCAN_TYPE).create()
         analyzer.analyzInAsyn(image).addOnSuccessListener { hmsScans ->
-            if (hmsScans != null && hmsScans.size > 0 && hmsScans[0] != null && !TextUtils.isEmpty(hmsScans[0]!!.getOriginalValue())) {
+            if (hmsScans != null && hmsScans.isNotEmpty() && hmsScans[0] != null && !TextUtils.isEmpty(hmsScans[0]!!.getOriginalValue())) {
                 val intent = Intent()
                 intent.putExtra(SCAN_RESULT, hmsScans.toTypedArray())
                 setResult(RESULT_OK, intent)
@@ -235,7 +236,7 @@ class CommonActivity :Activity(){
         val image = MLFrame.fromBitmap(bitmap)
         val analyzer = HmsScanAnalyzer.Creator(this).setHmsScanTypes(HmsScan.ALL_SCAN_TYPE).create()
         val result = analyzer.analyseFrame(image)
-        if (result != null && result.size() > 0 && result.valueAt(0) != null && !TextUtils.isEmpty(result.valueAt(0)!!.getOriginalValue())) {
+        if (result != null && result.isNotEmpty() && result.valueAt(0) != null && !TextUtils.isEmpty(result.valueAt(0)!!.getOriginalValue())) {
             val info = arrayOfNulls<HmsScan?>(result.size())
             for (index in 0 until result.size()) {
                 info[index] = result.valueAt(index)

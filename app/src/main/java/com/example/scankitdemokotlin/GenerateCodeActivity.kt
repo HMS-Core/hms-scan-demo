@@ -25,13 +25,6 @@ import java.util.*
 
 class GenerateCodeActivity:Activity() {
 
-    private val TAG = "GenerateCodeActivity"
-    private val BARCODE_TYPES = intArrayOf(HmsScan.QRCODE_SCAN_TYPE, HmsScan.DATAMATRIX_SCAN_TYPE, HmsScan.PDF417_SCAN_TYPE, HmsScan.AZTEC_SCAN_TYPE,
-            HmsScan.EAN8_SCAN_TYPE, HmsScan.EAN13_SCAN_TYPE, HmsScan.UPCCODE_A_SCAN_TYPE, HmsScan.UPCCODE_E_SCAN_TYPE, HmsScan.CODABAR_SCAN_TYPE,
-            HmsScan.CODE39_SCAN_TYPE, HmsScan.CODE93_SCAN_TYPE, HmsScan.CODE128_SCAN_TYPE, HmsScan.ITF14_SCAN_TYPE)
-    private val COLOR = intArrayOf(Color.BLACK, Color.BLUE, Color.GRAY, Color.GREEN, Color.RED, Color.YELLOW)
-    private val BACKGROUND = intArrayOf(Color.WHITE, Color.YELLOW, Color.RED, Color.GREEN, Color.GRAY, Color.BLUE, Color.BLACK)
-
     //Define a view.
     private var inputContent: EditText? = null
     private var generateType: Spinner? = null
@@ -50,6 +43,15 @@ class GenerateCodeActivity:Activity() {
     private var color = Color.BLACK
     private var background = Color.WHITE
 
+    companion object {
+        private const val TAG = "GenerateCodeActivity"
+        private val COLOR = intArrayOf(Color.BLACK, Color.BLUE, Color.GRAY, Color.GREEN, Color.RED, Color.YELLOW)
+        private val BACKGROUND = intArrayOf(Color.WHITE, Color.YELLOW, Color.RED, Color.GREEN, Color.GRAY, Color.BLUE, Color.BLACK)
+        private val BARCODE_TYPES = intArrayOf(HmsScan.QRCODE_SCAN_TYPE, HmsScan.DATAMATRIX_SCAN_TYPE, HmsScan.PDF417_SCAN_TYPE, HmsScan.AZTEC_SCAN_TYPE,
+                HmsScan.EAN8_SCAN_TYPE, HmsScan.EAN13_SCAN_TYPE, HmsScan.UPCCODE_A_SCAN_TYPE, HmsScan.UPCCODE_E_SCAN_TYPE, HmsScan.CODABAR_SCAN_TYPE,
+                HmsScan.CODE39_SCAN_TYPE, HmsScan.CODE93_SCAN_TYPE, HmsScan.CODE128_SCAN_TYPE, HmsScan.ITF14_SCAN_TYPE)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -67,7 +69,7 @@ class GenerateCodeActivity:Activity() {
         generateBackground = findViewById(R.id.generate_backgroundcolor)
         barcodeImage = findViewById(R.id.barcode_image)
         barcodeWidth = findViewById(R.id.barcode_width)
-        barcodeHeight = findViewById<EditText>(R.id.barcode_height)
+        barcodeHeight = findViewById(R.id.barcode_height)
         //Set the barcode type.
         generateType?.setOnItemSelectedListener(object : OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
@@ -119,9 +121,9 @@ class GenerateCodeActivity:Activity() {
     fun generateCodeBtnClick(v: View?) {
         content = inputContent!!.text.toString()
         val inputWidth = barcodeWidth!!.text.toString()
-        val inputHeight: String = barcodeHeight?.getText().toString()
+        val inputHeight: String = barcodeHeight?.text.toString()
         //Set the barcode width and height.
-        if (inputWidth.length <= 0 || inputHeight.length <= 0) {
+        if (inputWidth.isEmpty() || inputHeight.isEmpty()) {
             width = 700
             height = 700
         } else {
@@ -129,7 +131,7 @@ class GenerateCodeActivity:Activity() {
             height = inputHeight.toInt()
         }
         //Set the barcode content.
-        if (content!!.length <= 0) {
+        if (content!!.isEmpty()) {
             Toast.makeText(this, "Please input content first!", Toast.LENGTH_SHORT).show()
             return
         }
