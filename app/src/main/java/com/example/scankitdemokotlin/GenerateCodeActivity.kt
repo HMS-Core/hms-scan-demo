@@ -133,6 +133,10 @@ class GenerateCodeActivity:Activity() {
             Toast.makeText(this, "Please input content first!", Toast.LENGTH_SHORT).show()
             return
         }
+        if (color == background) {
+            Toast.makeText(this, "The color and background cannot be the same!", Toast.LENGTH_SHORT).show()
+            return
+        }
         try {
             //Generate the barcode.
             val options = HmsBuildBitmapOption.Creator().setBitmapMargin(margin).setBitmapColor(color).setBitmapBackgroundColor(background).create()
