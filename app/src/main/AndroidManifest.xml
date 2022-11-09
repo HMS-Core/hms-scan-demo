@@ -27,7 +27,7 @@
         <activity android:name=".GenerateCodeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".DisPlayActivity" android:screenOrientation="portrait" />
         <activity android:name=".DisPlayMulActivity" android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity android:name=".MainActivity" android:screenOrientation="unspecified">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

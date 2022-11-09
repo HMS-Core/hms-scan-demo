@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/mwc_title"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/clors_dis"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center"
+                android:text="@string/mwc_subject"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="263dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="24dp"
+
+                android:text="@string/mwc_detail"
+                android:textColor="#99000000"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/button_scan1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/clors_btn"
+            android:onClick="loadScanKitBtnClick"
+            android:text="@string/default_view_decoe"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_scan3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/clors_btn"
+            android:onClick="newViewBtnClick"
+            android:text="@string/customized_view_decode"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_scan4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/clors_btn"
+            android:onClick="bitmapBtnClick"
+            android:text="@string/bitmap_api_decode"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_scan5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/clors_btn"
+            android:onClick="multiProcessorSynBtnClick"
+            android:text="@string/multiProcessor_api_syn_decode"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_scan6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/clors_btn"
+            android:onClick="multiProcessorAsynBtnClick"
+            android:text="@string/multiProcessor_api_asyn_decode"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/clors_btn"
+            android:onClick="generateQRCodeBtnClick"
+            android:text="@string/generate_QR_code"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
