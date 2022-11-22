@@ -171,7 +171,7 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
             return;
         }
 
-        if (grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == GENERATE_CODE) {
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED && requestCode == GENERATE_CODE) {
             Intent intent = new Intent(this, GenerateCodeActivity.class);
             this.startActivity(intent);
         }
