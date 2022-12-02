@@ -14,6 +14,7 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +28,7 @@
         <activity android:name=".GenerateCodeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".DisPlayActivity" android:screenOrientation="portrait" />
         <activity android:name=".DisPlayMulActivity" android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity" android:screenOrientation="unspecified">
+        <activity android:name=".MainActivity" android:screenOrientation="unspecified" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +42,7 @@
         <activity android:name="com.example.scankitdemokotlin.GenerateCodeActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.example.scankitdemokotlin.DisPlayActivity" android:screenOrientation="portrait" />
         <activity android:name="com.example.scankitdemokotlin.DisPlayMulActivity" android:screenOrientation="portrait" />
-        <activity android:name="com.example.scankitdemokotlin.MainActivity" android:screenOrientation="portrait">
+        <activity android:name="com.example.scankitdemokotlin.MainActivity" android:screenOrientation="portrait" android:exported="true">
 
         </activity>
     </application>

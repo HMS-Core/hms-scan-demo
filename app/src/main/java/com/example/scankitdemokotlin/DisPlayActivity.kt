@@ -60,7 +60,7 @@ class DisPlayActivity :Activity(){
                 relativeLayout.layoutParams = lp
             }
             //Obtain the scanning result.
-            val obj: HmsScan = intent.getParcelableExtra(ScanUtil.RESULT)
+            val obj: HmsScan = intent.getParcelableExtra(ScanUtil.RESULT)!!
             try {
                 valueFillIn(obj)
             } catch (e: Exception) {

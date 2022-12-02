@@ -35,7 +35,7 @@ class CommonHandler(val activity: Activity, val cameraOperation: CameraOperation
     init {
         decodeThread = HandlerThread("DecodeThread")
         decodeThread?.start()
-        decodeHandle = object : Handler(decodeThread?.getLooper()) {
+        decodeHandle = object : Handler(decodeThread?.getLooper()!!) {
             override fun handleMessage(msg: Message) {
                 if (msg == null) {
                     return

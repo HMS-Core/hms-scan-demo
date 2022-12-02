@@ -175,7 +175,7 @@ class GenerateCodeActivity:Activity() {
                 Toast.makeText(this@GenerateCodeActivity, "Barcode save failed", Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
-            Log.w(TAG, Objects.requireNonNull(e.message))
+            Log.w(TAG, Objects.requireNonNull(e.message)!!)
             Toast.makeText(this@GenerateCodeActivity, "Unkown Error", Toast.LENGTH_SHORT).show()
         }
     }

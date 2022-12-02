@@ -143,10 +143,17 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
      * Apply for permissions.
      */
     private void decodePermission(int requestCode) {
-        ActivityCompat.requestPermissions(
-                this,
-                new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE},
-                requestCode);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_MEDIA_IMAGES},
+                    requestCode);
+        } else {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE},
+                    requestCode);
+        }
     }
 
     /**
