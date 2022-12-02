@@ -189,7 +189,7 @@ class MainActivity: Activity(),ActivityCompat.OnRequestPermissionsResultCallback
         }
         //Default View
         if (requestCode == REQUEST_CODE_SCAN_ONE) {
-            val obj: HmsScan = data.getParcelableExtra(ScanUtil.RESULT)
+            val obj: HmsScan = data.getParcelableExtra(ScanUtil.RESULT)!!
             if (obj != null) {
                 val intent = Intent(this, DisPlayActivity::class.java)
                 intent.putExtra(RESULT, obj)
@@ -214,7 +214,7 @@ class MainActivity: Activity(),ActivityCompat.OnRequestPermissionsResultCallback
             }
             //Customized View
         } else if (requestCode == REQUEST_CODE_DEFINE) {
-            val obj: HmsScan = data.getParcelableExtra(DefinedActivity.SCAN_RESULT)
+            val obj: HmsScan = data.getParcelableExtra(DefinedActivity.SCAN_RESULT)!!
             if (obj != null) {
                 val intent = Intent(this, DisPlayActivity::class.java)
                 intent.putExtra(RESULT, obj)
