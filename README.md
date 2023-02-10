@@ -22,9 +22,9 @@ This sample code shows how to quickly build barcode scanning functions into your
 
 ## Environment Requirements
 
-Android Studio 3.0 or later and JDK 1.8.211 or later.
+Android Studio 3.6.1 or later and JDK 1.8.211 or later.
 
-A Huawei device that runs EMUI 3.0 or later, compatible with HMS Core (APK) 4.0.0.200 or a generic device running Android 4.4 or later.
+A Huawei device that runs EMUI 3.6.1 or later, compatible with HMS Core (APK) 4.0.0.200 or a generic device running Android 4.4 or later.
 
 
 
