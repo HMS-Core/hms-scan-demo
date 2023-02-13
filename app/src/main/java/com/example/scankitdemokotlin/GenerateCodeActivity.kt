@@ -157,7 +157,12 @@ class GenerateCodeActivity:Activity() {
         }
         try {
             val fileName = System.currentTimeMillis().toString() + ".jpg"
-            val storePath = Environment.getExternalStorageDirectory().absolutePath
+            val storePath: String
+            storePath = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                applicationContext.getExternalFilesDir(null)!!.absolutePath
+            } else {
+                Environment.getExternalStorageDirectory().absolutePath
+            }
             val appDir = File(storePath)
             if (!appDir.exists()) {
                 appDir.mkdir()

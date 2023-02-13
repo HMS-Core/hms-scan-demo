@@ -160,10 +160,17 @@ public class MainActivity extends Activity implements ActivityCompat.OnRequestPe
      * Apply for permissions.
      */
     private void generatePermission(int requestCode) {
-        ActivityCompat.requestPermissions(
-                this,
-                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                requestCode);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.MANAGE_EXTERNAL_STORAGE},
+                    requestCode);
+        } else {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    requestCode);
+        }
     }
 
     /**

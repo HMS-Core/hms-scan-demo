@@ -183,7 +183,12 @@ public class GenerateCodeActivity extends Activity {
         }
         try {
             String fileName = System.currentTimeMillis() + ".jpg";
-            String storePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            String storePath;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                storePath = getApplicationContext().getExternalFilesDir(null).getAbsolutePath();
+            } else {
+                storePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            }
             File appDir = new File(storePath);
             if (!appDir.exists()) {
                 appDir.mkdir();

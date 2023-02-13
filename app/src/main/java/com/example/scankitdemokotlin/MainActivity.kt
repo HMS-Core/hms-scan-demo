@@ -122,9 +122,15 @@ class MainActivity: Activity(),ActivityCompat.OnRequestPermissionsResultCallback
      * Apply for permissions.
      */
     private fun generatePermission(requestCode: Int) {
-        ActivityCompat.requestPermissions(
-                this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                requestCode)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                    this, arrayOf(Manifest.permission.MANAGE_EXTERNAL_STORAGE),
+                    requestCode)
+        } else {
+            ActivityCompat.requestPermissions(
+                    this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    requestCode)
+        }
     }
 
     /**
