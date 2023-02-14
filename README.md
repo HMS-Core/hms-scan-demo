@@ -1,13 +1,13 @@
-﻿# HMS Core Scan Kit Sample Code (Android)
+# HMS Core Scan Kit Sample Code (Android)
 
 English | [中文](README_ZH.md)
 ## Contents
 
- * [Introduction](#Introduction)
- * [Environment Requirements](#Environment-Requirements)
- * [Sample Code](#Sample-Code)
- * [Result](#Result)
- * [License](#License)
+* [Introduction](#Introduction)
+* [Environment Requirements](#Environment-Requirements)
+* [Sample Code](#Sample-Code)
+* [Result](#Result)
+* [License](#License)
 
 
 
@@ -24,7 +24,7 @@ This sample code shows how to quickly build barcode scanning functions into your
 
 Android Studio 3.6.1 or later and JDK 1.8.211 or later.
 
-A Huawei device that runs EMUI 3.6.1 or later, compatible with HMS Core (APK) 4.0.0.200 or a generic device running Android 4.4 or later.
+A Huawei device that runs EMUI 3.0 or later, compatible with HMS Core (APK) 4.0.0 or a generic device running Android 4.4 or later.
 
 
 
@@ -48,7 +48,7 @@ Use this mode when you wish to have full control over the input to the scanning 
 
 Recognize multiple barcodes at the same time. When working together with the [HMS ML Kit](https://developer.huawei.com/consumer/en/hms/huawei-mlkit/), Scan Kit can detecting both barcodes and human faces. Frame data is transmitted and decoded through [the multi-processor API](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/scan-analyzer4-0000001050167905). See `com.example.scankitdemo.CommonActivity` and read more about [how it works](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-synchronous-mode-0000001050043967).
 
-**Generating barcodes** 
+**Generating barcodes**
 
 Generate your own barcodes by calling `com.huawei.hms.hmsscankit.ScanUtil.buildBitmap()` ([definition](https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/scan-scanutil4-0000001050167699#section56266161243)) in `com.example.scankitdemo.GenerateCodeActivity`.
 
