@@ -52,6 +52,7 @@ public class CameraOperation {
 
     public synchronized void close() {
         if (camera != null) {
+            camera.stopPreview(); 
             camera.release();
             camera = null;
         }
