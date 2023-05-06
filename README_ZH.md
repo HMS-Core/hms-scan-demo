@@ -56,10 +56,10 @@
 
 代码位置:example/scankitdemo/CommonActivity.java example/scankitdemo/CommonHandler.java
 
-### 演示提供了生成条形码能力
+### 演示提供了码生成功能
 * Generate Code API
 
-该应用程序允许您生成条形码。
+该应用程序允许您生成一维或条形码。
 
 代码位置:example/scankitdemo/GenerateCodeActivity.java
 
