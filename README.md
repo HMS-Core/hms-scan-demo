@@ -30,7 +30,7 @@ A Huawei device that runs EMUI 3.0 or later, compatible with HMS Core (APK) 4.0.
 
 ## Sample Code
 
-Barcode scanning and barcodes generating can be achieved in different ways, showcased by the demo.
+Barcode scanning and barcode generating can be achieved in different ways, showcased by the demo.
 
 **Default view**
 
