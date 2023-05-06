@@ -30,7 +30,7 @@
 华为设备需要运行EMUI 3.0或更高版本，适应HMS APK 4.0.0 或更高版本；非华为设备需要Android 4.4或更高版本。
 
 ## 示例代码
-演示提供了四种模式，以适应不同情况下的代码扫描能力。
+### 演示提供了四种模式，以适应不同情况下的代码扫描能力。
 
 * Default View
 
@@ -56,7 +56,7 @@
 
 代码位置:example/scankitdemo/CommonActivity.java example/scankitdemo/CommonHandler.java
 
-演示提供了生成条形码能力
+### 演示提供了生成条形码能力
 * Generate Code API
 
 该应用程序允许您生成条形码。
