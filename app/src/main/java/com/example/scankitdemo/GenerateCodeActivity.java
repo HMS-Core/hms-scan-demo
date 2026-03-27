@@ -15,6 +15,7 @@
  */
 package com.example.scankitdemo;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -22,6 +23,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -39,6 +41,7 @@ import com.huawei.hms.ml.scan.HmsScan;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Objects;
 
 public class GenerateCodeActivity extends Activity {
@@ -183,27 +186,30 @@ public class GenerateCodeActivity extends Activity {
         }
         try {
             String fileName = System.currentTimeMillis() + ".jpg";
-            String storePath;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                storePath = getApplicationContext().getExternalFilesDir(null).getAbsolutePath();
-            } else {
-                storePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-            }
-            File appDir = new File(storePath);
-            if (!appDir.exists()) {
-                appDir.mkdir();
-            }
-            File file = new File(appDir, fileName);
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            boolean isSuccess = resultImage.compress(Bitmap.CompressFormat.JPEG, 70, fileOutputStream);
-            fileOutputStream.flush();
-            fileOutputStream.close();
-            Uri uri = Uri.fromFile(file);
-            GenerateCodeActivity.this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
-            if (isSuccess) {
-                Toast.makeText(GenerateCodeActivity.this, "Barcode has been saved locally", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(GenerateCodeActivity.this, "Barcode save failed", Toast.LENGTH_SHORT).show();
+            Log.i(TAG, "fileName: " + fileName);
+            ContentValues values = new ContentValues();
+            values.put(MediaStore.Images.Media.DISPLAY_NAME, fileName); // 文件名
+            values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+            values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES); // 保存到“图片/YourAppName”目录
+
+            Uri uri = null;
+            Uri contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+            uri = getApplicationContext().getContentResolver().insert(contentUri, values);
+            //Log.i(TAG, "uri: " + uri);
+            if (uri != null) {
+                OutputStream outputStream = getApplicationContext().getContentResolver().openOutputStream(uri);
+                if (outputStream != null) {
+                    boolean isSuccess = resultImage.compress(Bitmap.CompressFormat.JPEG, 90, outputStream);
+                    outputStream.flush();
+                    outputStream.close();
+
+                    GenerateCodeActivity.this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
+                    if (isSuccess) {
+                        Toast.makeText(GenerateCodeActivity.this, "Barcode has been saved locally", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(GenerateCodeActivity.this, "Barcode save failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         } catch (Exception e) {
             Log.w(TAG, Objects.requireNonNull(e.getMessage()));
