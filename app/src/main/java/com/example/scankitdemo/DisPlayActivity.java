@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -61,6 +62,7 @@ public class DisPlayActivity extends Activity {
     private TextView iconText;
     private TextView resultTypeTitle;
     private HmsScan.WiFiConnectionInfo wiFiConnectionInfo;
+    private static final String TAG = "DisPlayActivity" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -308,8 +310,16 @@ public class DisPlayActivity extends Activity {
                     public void onClick(View v) {
                         Uri webpage = Uri.parse(hmsScan.getOriginalValue());
                         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-                        if (intent.resolveActivity(getPackageManager()) != null) {
-                            startActivity(intent);
+
+                        if (getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
+                            try {
+                                startActivity(intent);
+                                Log.i(TAG, "Activity started successfully");
+                            } catch (Exception e) {
+                                Log.e(TAG, "No activity found, " + e.getMessage());
+                            }
+                        } else {
+                            Log.w(TAG, "No activity can handle this intent");
                         }
                     }
                 });
