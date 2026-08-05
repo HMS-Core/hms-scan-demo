@@ -19,7 +19,7 @@
 
 ## 开发准备
 1)创建app应用，并配置AppGallery Connect。
-见详情:[HUWEI Scan Development Preparation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-config-agc-0000001050043955?ha_source=hms1)
+见详情:[HUAWEI Scan Development Preparation](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-config-agc-0000001050043955?ha_source=hms1)
 
 2)添加当前应用的AppGallery Connect配置文件
 
